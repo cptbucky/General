@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+		<com.avantics.iWantToGoHome.TimePreference
+				android:key="pref_home_time"
+				android:summary="@string/pref_home_time_summary"
+				android:title="@string/pref_home_time_title"/>
+
+</PreferenceScreen>

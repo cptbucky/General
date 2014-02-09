@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">can i go home?</string>
+	<string name="app_settings">settings</string>
+	<string name="pref_title">settings</string>
+	<string name="pref_home_time_summary">enter the time that you leave work</string>
+	<string name="pref_home_time_title">home time</string>
+</resources>
