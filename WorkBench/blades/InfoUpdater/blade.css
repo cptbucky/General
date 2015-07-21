@@ -1,0 +1,228 @@
+input {
+    border: 1px solid #dce0e0;
+    border-radius: 2px;
+    outline-width: 0;
+}
+
+input:focus {
+    border: 1px solid #66afe9;
+}
+
+/* this should just be for the blade not service too */
+input[type="button"] {
+    background: #f76426;
+    width: 100px;
+    border-radius: 3px;
+    padding: 8px 10px;
+    color: #FFF;
+    line-height:20px;
+    font-size:12px;
+    text-align:center;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    border: 1px solid #f76426;
+}
+
+.vis-hid {
+    visibility: hidden;
+}
+
+.container {
+    /*-webkit-transition: max-height 1s;*/
+    /*-moz-transition: max-height 1s;*/
+    /*-ms-transition: max-height 1s;*/
+    /*-o-transition: max-height 1s;*/
+    /*transition: max-height 1s;*/
+    /*max-height: 0;*/
+    /*overflow: hidden;*/
+    /*position: relative;*/
+    /*transition: height 3s;*/
+
+
+    overflow-y: hidden;
+    max-height: 0; /* approximate max height */
+
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.container-vis {
+    /*top: 0;*/
+    /*visibility: visible;*/
+    /*height: 200px;*/
+
+    max-height: 200px;
+}
+
+.container-field-entries {
+    width: 90%;
+    float: left;
+    padding: 10px 10px 10px 20px;
+}
+
+/*.slide {*/
+    /*position: absolute;*/
+    /*top: -250px;*/
+    /*transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);*/
+    /*overflow: hidden;*/
+    /*box-sizing: border-box;*/
+/*}*/
+
+.slide {
+    /*height: 0;*/
+    /*position: absolute;*/
+    font-family: Lato,Arial;
+    background: #fff;
+    border-radius: 2px;
+    box-sizing: border-box;
+    /*top: -206px;*/
+    /*visibility: hidden;*/
+    /*transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);*/
+    /*right: 0;*/
+    /*left: 0;*/
+
+    border: none;
+    margin: 0;
+
+    overflow-y: hidden;
+    height: 0; /* approximate max height */
+
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slide-vis {
+    /*visibility: visible;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    height: 194px;
+    border: 1px solid #dce0e0;
+    margin: 6px 6px 0 6px;
+}
+
+.heading {
+    color: #2574a9;
+    font-weight: 300;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.container-actions {
+    position: absolute;
+    right: 0;
+    width: 10%;
+    height: 100%;
+}
+
+.close {
+    float: right;
+    margin-right: 6px;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+.skip {
+    float: right;
+    margin-right: 45px;
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+.save {
+    float: right;
+    margin-right: 6px;
+    margin-top: 6px;
+}
+
+.accept {
+    position: absolute;
+    top: 68px;
+    right: 25px;
+}
+
+.ck-button-container {
+    /*width: 460px;*/
+    /*margin: 30px auto;*/
+    padding-left: 60px;
+}
+
+.ck-button {
+    background-color:#EFEFEF;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    /*float:left;*/
+    /*margin-left: -1px;*/
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.ck-button--first {
+    margin-left: 0;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.ck-button--last {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.ck-button label {
+    float:left;
+}
+
+.ck-button label span {
+    text-align:center;
+    display:block;
+    line-height: 80px;
+    width: 90px;
+    cursor: pointer;
+}
+
+.ck-button label input {
+    position:absolute;
+    top:-20px;
+    visibility: hidden;
+}
+
+.ck-button input:checked + span {
+    background-color: #9e9e9e;
+    color:#fff;
+}
+
+.field-def > label {
+    display: block;
+    text-align: center;
+}
+
+.field-def > div {
+    margin-top: 10px;
+}
+
+.field-def > div > label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.field-def input {
+    width: 100%;
+    line-height: 20pt;
+}
+
+.field-def select {
+    width: 100%;
+    height: 20px;
+}
+
+.field-text {
+    width: 100%;
+    line-height: 30px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.field-text-container {
+    padding: 12px 75px 21px 50px;
+}

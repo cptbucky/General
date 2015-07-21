@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="bench/css/workbench.css">
+
+    <!--framework-->
+    <script src="framework/common.js"></script>
+    <script src="framework/serviceContainer.js"></script>
+    <script src="framework/notificator.js"></script>
+    <script src="framework/bladeRunner.js"></script>
+
+    <!--blades-->
+    <link rel="stylesheet" type="text/css" href="blades/InfoUpdaterService/blade.css">
+    <script src="blades/InfoUpdaterService/blade.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="blades/InfoUpdater/blade.css">
+    <script src="blades/InfoUpdater/blade.js"></script>
+
+    <script src="blades/InfoUpdateText/blade.js"></script>
+    <script src="blades/InfoUpdateSelect/blade.js"></script>
+
+</head>
+<body>
+<div class="dependencies">
+    <h1 class="area-heading">input</h1>
+
+    <div id="dependencyView"></div>
+</div>
+<div class="scratch">
+    <header>
+        <img src="http://img.erm-assets.com/images/UK/r_logo.png" alt="Flatshare, Rooms to Rent, House Share">
+    </header>
+    <div class="left-content">left content</div>
+    <div id="scratch" class="container"></div>
+    <div class="other-content-container">
+        <div class="other-content">other content</div>
+        <!--<div class="listing-status"><span class="thermometer"></span></div>-->
+    </div>
+</div>
+<div class="output">
+    <h1 class="area-heading">output</h1>
+
+    <div id="outputView"></div>
+</div>
+
+<script src="bower_components/handlebars/handlebars.js"></script>
+
+<script id="field-partial" type="text/x-handlebars-template">
+    <div class="field-def">
+        <label>Field {{number}}</label>
+
+        <div>
+            <label>Field Name</label>
+            <input class="field-name" value="{{name}}"/>
+        </div>
+        <div>
+            <label>Field Heading</label>
+            <input class="field-heading" value="{{heading}}"/>
+        </div>
+        <div>
+            <label>Field Type</label>
+            <select class="field-template">
+                {{#select type}}
+                <option value="" selected disabled>Please select</option>
+                <option value="amenities">Amenities</option>
+                <option value="description">Description</option>
+                <option value="furnished">Furnished</option>
+                <option value="housematecount">Number of Housemates</option>
+                <option value="roomtype">Room Type</option>
+                <option value="title">Title</option>
+                {{/select}}
+            </select>
+        </div>
+    </div>
+</script>
+
+<script>
+    Handlebars.registerHelper("select", function (value, options) {
+        return options.fn(this)
+                .split('\n')
+                .map(function (v) {
+                    var t = 'value="' + value + '"';
+                    return !RegExp(t).test(v) ? v : v.replace(t, t + ' selected="selected"')
+                })
+                .join('\n')
+    });
+    Handlebars.registerPartial("field", document.querySelectorAll("#field-partial")[0].innerHTML);
+</script>
+
+<script id="field-input-template" type="text/x-handlebars-template">
+    <input type="button" value="update" class="submit"/>
+    <i class="fa fa-plus"></i>
+
+    <div id="infoUpdateServiceContainer">
+        {{> field}}
+    </div>
+</script>
+
+<script id="field-display-text-template" type="text/x-handlebars-template">
+    <div class="slide {{slideClass}}">
+        <i class="fa fa-close close"></i>
+
+        <div class="">
+            <h2 class="heading">{{header}}</h2>
+
+            <div class="field-text-container">
+                <input type="text" class="field-text" placeholder="enter your catchy title here..."/>
+            </div>
+        </div>
+        <input type="button" value="save" class="save"/>
+        <span class="skip">skip</span>
+    </div>
+</script>
+
+<script id="field-display-multi-template" type="text/x-handlebars-template">
+    <div class="slide {{slideClass}}">
+        <i class="fa fa-close close"></i>
+
+        <div class="">
+            <h2 class="heading">{{header}}</h2>
+
+            <div class="ck-button-container">
+                <div class="ck-button ck-button--first">
+                    <label>
+                        <input type="checkbox" value="1"><span>furnished</span>
+                    </label>
+                </div>
+                <div class="ck-button">
+                    <label>
+                        <input type="checkbox" value="2"><span>gym</span>
+                    </label>
+                </div>
+                <div class="ck-button">
+                    <label>
+                        <input type="checkbox" value="3"><span>garden</span>
+                    </label>
+                </div>
+                <div class="ck-button">
+                    <label>
+                        <input type="checkbox" value="4"><span>parking</span>
+                    </label>
+                </div>
+                <div class="ck-button ck-button--last">
+                    <label>
+                        <input type="checkbox" value="5"><span>tv</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <input type="button" value="save" class="save"/>
+        <span class="skip">skip</span>
+    </div>
+</script>
+
+<!--views-->
+<script src="bench/workbench.js"></script>
+</body>
+</html>
